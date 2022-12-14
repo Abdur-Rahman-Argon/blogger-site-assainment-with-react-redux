@@ -1,19 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navMenu = (
     <>
       <li>
-        <a>Home </a>
+        <Link to="/">Home </Link>
       </li>
       <li>
-        <a>Portfolio</a>
+        <Link to="/portfolio">Portfolio</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to="/about">About</Link>
       </li>
       <li>
-        <a>
+        <Link to="">
           <button className="btn btn-ghost btn-circle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -30,10 +31,10 @@ const Navbar = () => {
               />
             </svg>
           </button>
-        </a>
+        </Link>
       </li>
       <li>
-        <a>
+        <Link to="">
           <button className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -55,25 +56,27 @@ const Navbar = () => {
               </span>
             </div>
           </button>
-        </a>
+        </Link>
       </li>
       <li tabIndex={0} className="">
-        <div class="w-20 ">
+        <div class="w-full">
           <img
             src="https://placeimg.com/80/80/people"
             alt=""
-            className="rounded-full"
+            className=" w-12 mx-2 rounded-full border-4 border-green-300"
           />
         </div>
         <ul className="p-2 bg-slate-200 menu menu-compact dropdown-content mt-16 -left-2 lg:mt-0">
           <li>
-            <a className="justify-between">Profile</a>
+            <Link to="" className="justify-between">
+              Profile
+            </Link>
           </li>
           <li>
-            <a>Settings</a>
+            <Link to="">Settings</Link>
           </li>
           <li>
-            <a>Logout</a>
+            <Link to="">Logout</Link>
           </li>
         </ul>
       </li>
@@ -83,13 +86,15 @@ const Navbar = () => {
   return (
     <div className="navbar bg-slate-200 px-20">
       <div className="navbar-start">
-        <a className="btn btn-ghost normal-case text-xl">Blogging Site</a>
+        <Link to="" className="btn btn-ghost normal-case text-xl">
+          Blogging Site
+        </Link>
       </div>
 
       {/* Navbar End */}
       <div className="navbar-end  ">
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={1} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -114,7 +119,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navMenu}</ul>
+          <ul className="menu menu-horizontal gap-2 px-1">{navMenu}</ul>
         </div>
       </div>
     </div>

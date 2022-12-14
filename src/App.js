@@ -1,9 +1,11 @@
-import Navbar from "./Layout/Navbar";
+import { RouterProvider } from "react-router-dom";
+import Main from "./Layout/Main";
+import routes from "./routes/routes";
 
 function App() {
   return (
     <div className="App">
-      <Navbar>Home</Navbar>
+      <RouterProvider router={routes} />
     </div>
   );
 }
