@@ -1,8 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
-  const user = false;
+  const [user, loading, error] = useAuthState(auth);
+
+  console.log(user);
 
   const navMenu = (
     <>
@@ -61,15 +66,23 @@ const Navbar = () => {
           <>
             <div class="p-0">
               <img
-                src="https://placeimg.com/80/80/people"
+                src={
+                  user.photoURL ||
+                  "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                }
                 alt=""
                 className=" w-12 mx-2 rounded-full border-4 border-green-300"
               />
             </div>
 
             {/* profile dropdown */}
-            <ul className="p-2 bg-slate-200 menu menu-compact dropdown-content mt-16 -left-2 lg:mt-0">
+            <ul className="p-2 bg-slate-200 menu menu-compact dropdown-content gap-2 mt-12 -left-3 lg:-left-5 lg:mt-0">
               <li>
+                {user.displayName && (
+                  <button className="justify-between">
+                    {user.displayName}
+                  </button>
+                )}
                 <Link to="" className="justify-between">
                   Profile
                 </Link>
@@ -78,12 +91,12 @@ const Navbar = () => {
                 <Link to="">Settings</Link>
               </li>
               <li>
-                <Link to="">Logout</Link>
+                <button onClick={() => signOut(auth)}>Logout</button>
               </li>
             </ul>
           </>
         ) : (
-          <Link to="/login"> Login </Link>
+          <Link to="login"> Login </Link>
         )}
       </li>
     </>
@@ -118,7 +131,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={1}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 gap-2 shadow bg-base-100 rounded-box w-52"
           >
             {navMenu}
           </ul>

@@ -1,18 +1,21 @@
 import React from "react";
 import {
-  useAuthState,
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 
 import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Login = () => {
-  const [signInWithGoogle, GUser, loading, error] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, LUuser, LLoading, LError] =
-    useSignInWithEmailAndPassword(auth);
+const Signup = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  const [createUserWithEmailAndPassword, CUser, cLoading, cError] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const [updateProfile, updating] = useUpdateProfile(auth);
 
   const {
     register,
@@ -20,20 +23,21 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
-  const [user] = useAuthState(auth);
-
-  if (user) {
-    navigate("/");
-  }
-
   const input =
     "input input-bordered input-accent w-full max-w-xs focus:outline-0";
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     // event.preventDefault()
-    signInWithEmailAndPassword(data.email, data.password);
+    await createUserWithEmailAndPassword(data.email, data.password);
+
+    const success = await updateProfile({
+      displayName: data.displayName,
+      photoURL: data.photoURL,
+    });
+    console.log(success);
+    if (success) {
+      alert("Updated profile");
+    }
   };
 
   return (
@@ -45,6 +49,21 @@ const Login = () => {
           </h1>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="my-2">
+            {/*  */}
+            <input
+              placeholder="Please Input Name"
+              type="text"
+              className={`${input}  ${errors.displayName && " border-red-500"}`}
+              {...register("displayName", { required: true })}
+            />
+            <p>
+              {errors.displayName && (
+                <span className=" ml-5 text-red-500">Name is required</span>
+              )}
+            </p>
+          </div>
+
           <div className="my-2">
             {/*  */}
             <input
@@ -80,16 +99,16 @@ const Login = () => {
 
           <input
             className=" text-xl btn btn-primary my-3 w-full"
-            value={"Login"}
+            value={"SignUp"}
             type="submit"
           />
         </form>
       </div>
 
       <p className=" text-center  font-semibold">
-        Not Any Account{" "}
-        <Link to="/signup" className="text-green-700">
-          SignUp
+        Have A Account{" "}
+        <Link to="/login" className="text-green-700">
+          Login
         </Link>
       </p>
 
@@ -113,4 +132,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
