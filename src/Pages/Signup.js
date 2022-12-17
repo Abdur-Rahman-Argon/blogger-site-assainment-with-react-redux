@@ -117,16 +117,16 @@ const Signup = () => {
       <div className=" grid grid-cols-3 justify-around text-center mt-5 text-3xl ">
         <div className=" text-center">
           <button onClick={() => signInWithGoogle()}>
-            <i class="fa-brands fa-google-plus-g text-center text-red-600"></i>
+            <i className="fa-brands fa-google-plus-g text-center text-red-600"></i>
           </button>
         </div>
         <div className=" text-center">
-          <i class="fa-brands fa-facebook text-center text-blue-500"></i>
+          <i className="fa-brands fa-facebook text-center text-blue-500"></i>
         </div>
         <div className=" text-center">
-          <i class="fa-brands fa-github text-center"></i>
+          <i className="fa-brands fa-github text-center"></i>
         </div>
-        <div>{/* <i class="fa-brands fa-linkedin-in"></i> */}</div>
+        <div>{/* <i className="fa-brands fa-linkedin-in"></i> */}</div>
       </div>
     </div>
   );

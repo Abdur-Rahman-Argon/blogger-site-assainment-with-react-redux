@@ -7,7 +7,7 @@ import { signOut } from "firebase/auth";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  console.log(user);
+  // console.log(user);
 
   const navMenu = (
     <>
@@ -64,7 +64,7 @@ const Navbar = () => {
       <li tabIndex={0} className="">
         {user ? (
           <>
-            <div class="p-0">
+            <div className="p-0">
               <img
                 src={
                   user.photoURL ||
