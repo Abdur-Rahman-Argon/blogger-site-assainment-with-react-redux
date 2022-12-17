@@ -20,7 +20,7 @@ const Navbar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +37,7 @@ const Navbar = () => {
             />
           </svg>
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link to="">
           <div className="indicator">
@@ -76,13 +76,16 @@ const Navbar = () => {
             </div>
 
             {/* profile dropdown */}
-            <ul className="p-2 bg-slate-200 menu menu-compact dropdown-content gap-2 mt-12 -left-3 lg:-left-5 lg:mt-0">
-              <li>
-                {user.displayName && (
-                  <button className="justify-between">
+            <ul className="p-2 bg-slate-700 menu menu-compact dropdown-content gap-2 mt-12 -left-3 lg:-left-5 lg:mt-0">
+              {user.displayName && (
+                <li>
+                  <button className="justify-between ">
                     {user.displayName}
                   </button>
-                )}
+                </li>
+              )}
+
+              <li>
                 <Link to="" className="justify-between">
                   Profile
                 </Link>
@@ -103,9 +106,17 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-slate-200 px-20 py-0">
+    <div className="navbar bg-slate-700 text-slate-50 px-20 py-0">
       <div className="navbar-start">
-        <Link to="" className="btn btn-ghost normal-case text-xl">
+        <Link
+          to=""
+          className="btn text-orange-400 uppercase btn-ghost   text-lg"
+        >
+          <img
+            src="https://icons.iconarchive.com/icons/sicons/basic-round-social/512/blogger-icon.png"
+            alt=""
+            className=" w-8 mx-1"
+          />{" "}
           Blogging Site
         </Link>
       </div>
@@ -131,7 +142,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={1}
-            className="menu menu-compact dropdown-content mt-3 p-2 gap-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-1 p-2 gap-2 shadow bg-slate-700 rounded-box w-52"
           >
             {navMenu}
           </ul>
