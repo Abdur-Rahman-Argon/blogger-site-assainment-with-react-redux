@@ -1,8 +1,12 @@
 import React from "react";
-// import { BsFacebook } from "@react-icons/all-files/fa/BsFacebook";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+
 import { useForm } from "react-hook-form";
+import auth from "../firebase.init";
 
 const Login = () => {
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
   const {
     register,
     handleSubmit,
@@ -68,7 +72,9 @@ const Login = () => {
 
       <div className=" grid grid-cols-3 justify-around text-center mt-5 text-3xl ">
         <div className=" text-center">
-          <i class="fa-brands fa-google-plus-g text-center text-red-600"></i>
+          <button onClick={() => signInWithGoogle()}>
+            <i class="fa-brands fa-google-plus-g text-center text-red-600"></i>
+          </button>
         </div>
         <div className=" text-center">
           <i class="fa-brands fa-facebook text-center text-blue-500"></i>
