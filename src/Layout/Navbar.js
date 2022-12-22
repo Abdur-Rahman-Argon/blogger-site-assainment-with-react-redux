@@ -15,13 +15,19 @@ const Navbar = () => {
         <Link to="/">Home </Link>
       </li>
       <li>
-        <Link to="/portfolio">Blogs</Link>
+        <Link to="/blogs">Blogs</Link>
+      </li>
+      <li>
+        <Link to="/create-blogs">Create Blogs</Link>
       </li>
       {/* <li>
         <Link to="/portfolio">Portfolio</Link>
       </li> */}
       <li>
         <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/about">Contact Us</Link>
       </li>
       {/* <li>
         <Link to="">
@@ -81,16 +87,19 @@ const Navbar = () => {
             {/* profile dropdown */}
             <ul className="p-2 bg-slate-700 menu menu-compact dropdown-content gap-2 mt-12 -left-3 lg:-left-5 lg:mt-0">
               {user.displayName && (
-                <li>
-                  <button className="justify-between ">
-                    {user.displayName}
-                  </button>
+                <li className="">
+                  <span className=" cursor-text">{user.displayName}</span>
                 </li>
               )}
 
               <li>
                 <Link to="" className="justify-between">
                   Profile
+                </Link>
+              </li>
+              <li>
+                <Link to="" className="justify-between">
+                  My Blogs
                 </Link>
               </li>
               <li>
