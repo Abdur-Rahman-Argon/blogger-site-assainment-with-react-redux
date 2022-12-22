@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import BlogDetailsPage from "../Components/BlogDetailsPage";
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const routes = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
       { path: "*", element: <NotFound></NotFound> },
+      { path: "/blog-details", element: <BlogDetailsPage></BlogDetailsPage> },
       // { path: "/", element: <Home></Home> },
     ],
   },
