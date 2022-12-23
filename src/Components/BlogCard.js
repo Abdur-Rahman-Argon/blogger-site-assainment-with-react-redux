@@ -43,7 +43,7 @@ const BlogCard = () => {
             >
               <i
                 class={`fa-solid fa-heart ${
-                  love ? "text-red-400" : " text-slate-600"
+                  love ? "text-red-500" : " text-slate-500"
                 } `}
               ></i>
             </button>{" "}

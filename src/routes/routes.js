@@ -6,6 +6,7 @@ import NotFound from "../Pages/NotFound";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import BlogDetailsPage from "../Components/BlogDetailsPage";
+import CreateBlog from "../Components/CreateBlog";
 
 const routes = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const routes = createBrowserRouter([
       { path: "/signup", element: <Signup /> },
       { path: "*", element: <NotFound></NotFound> },
       { path: "/blog-details", element: <BlogDetailsPage></BlogDetailsPage> },
-      // { path: "/", element: <Home></Home> },
+      { path: "/create-blogs", element: <CreateBlog /> },
     ],
   },
 ]);

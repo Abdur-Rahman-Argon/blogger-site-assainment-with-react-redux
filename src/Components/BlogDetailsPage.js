@@ -6,7 +6,7 @@ const BlogDetailsPage = () => {
   return (
     <div>
       <div className=" m-2 flex flex-col lg:flex-row">
-        <div className=" w-10/12 ">
+        <div className=" lg:w-10/12 ">
           <BlogDetails />
         </div>
         <div className=" p-2 lg:w-80">
