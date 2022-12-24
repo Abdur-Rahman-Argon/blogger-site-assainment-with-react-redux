@@ -1,22 +1,24 @@
 import React from "react";
 import PostComment from "./PostComment";
 
-const BlogDetails = () => {
+const BlogDetails = ({ blogDetails }) => {
   return (
     <div className="lg:px-10 px-2">
       <div className=" w-full">
-        <h2 className="text-center font-bold uppercase text-4xl my-1">
-          This Collection Prieod
+        <h2 className="text-center font-bold uppercase text-4xl my-8">
+          {blogDetails.blogTittle}
         </h2>
 
         <div className="card-actions  text-xl flex justify-between mx-5 my-4">
           <p>
-            Posted By{" "}
-            <span className=" cursor-pointer font-bold"> Abdur Rahman </span>
+            Posted By
+            <span className=" cursor-pointer font-bold">
+              {blogDetails.name}
+            </span>
           </p>
           <p className=" text-lg">
             <span className="font-semibold">Date:</span>
-            <span className=" font-semibold"> 5 May, 2022 </span>
+            <span className=" font-semibold"> {blogDetails.publishDate} </span>
           </p>
         </div>
 
@@ -24,59 +26,13 @@ const BlogDetails = () => {
       </div>
       <div className=" text-center">
         <div className=" text-center">
-          <img
-            src="https://placeimg.com/400/225/arch"
-            alt="car!"
-            className=" mx-auto"
-          />
+          <img src={blogDetails.photoURL} alt="car!" className=" mx-auto" />
         </div>
         <div className=" text-center"> Image tittle</div>
         <div className="divider"></div>
       </div>
       <div className=" text-left  gap-2 ">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-          dignissimos doloremque illo, sapiente, quisquam ipsa suscipit, quas
-          iste vitae quod pariatur nihil ut expedita laboriosam debitis nostrum
-          voluptatem autem dolores. Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. A dignissimos doloremque illo, sapiente, quisquam
-          ipsa suscipit, quas iste vitae quod pariatur nihil ut expedita
-          laboriosam debitis nostrum voluptatem autem dolores. Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. A dignissimos doloremque illo,
-          sapiente, quisquam ipsa suscipit, quas iste vitae quod pariatur nihil
-          ut expedita laboriosam debitis nostrum voluptatem autem dolores. Lorem
-          ipsum dolor sit amet consectetur, adipisicing elit. A dignissimos
-          doloremque illo, sapiente, quisquam ipsa suscipit, quas iste vitae
-          quod pariatur nihil ut expedita laboriosam debitis nostrum voluptatem
-          autem dolores.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-          dignissimos doloremque illo, sapiente, quisquam ipsa suscipit, quas
-          iste vitae quod pariatur nihil ut expedita laboriosam debitis nostrum
-          voluptatem autem dolores. Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. A dignissimos doloremque illo, sapiente, quisquam
-          ipsa suscipit, quas iste vitae quod pariatur nihil ut expedita
-          laboriosam debitis nostrum voluptatem autem dolores.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-          dignissimos doloremque illo, sapiente, quisquam ipsa suscipit, quas
-          iste vitae quod pariatur nihil ut expedita laboriosam debitis nostrum
-          voluptatem autem dolores. Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. A dignissimos doloremque illo, sapiente, quisquam
-          ipsa suscipit, quas iste vitae quod pariatur nihil ut expedita
-          laboriosam debitis nostrum voluptatem autem dolores.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-          dignissimos doloremque illo, sapiente, quisquam ipsa suscipit, quas
-          iste vitae quod pariatur nihil ut expedita laboriosam debitis nostrum
-          voluptatem autem dolores. Lorem ipsum dolor sit amet consectetur,
-          adipisicing elit. A dignissimos doloremque illo, sapiente, quisquam
-          ipsa suscipit, quas iste vitae quod pariatur nihil ut expedita
-          laboriosam debitis nostrum voluptatem autem dolores.
-        </p>
+        <p>{blogDetails.blogText}</p>
       </div>
 
       <div className=" divider"></div>

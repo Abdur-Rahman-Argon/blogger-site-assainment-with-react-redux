@@ -5,7 +5,7 @@ import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
-import BlogDetailsPage from "../Components/BlogDetailsPage";
+import BlogDetailsPage from "../Pages/BlogDetailsPage";
 import CreateBlog from "../Components/CreateBlog";
 import LoveBlogs from "../Pages/LoveBlogs";
 
@@ -19,7 +19,10 @@ const routes = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
       { path: "*", element: <NotFound></NotFound> },
-      { path: "/blog-details", element: <BlogDetailsPage></BlogDetailsPage> },
+      {
+        path: "/blog-details/:id",
+        element: <BlogDetailsPage></BlogDetailsPage>,
+      },
       { path: "/create-blogs", element: <CreateBlog /> },
       { path: "/love-blogs", element: <LoveBlogs /> },
     ],

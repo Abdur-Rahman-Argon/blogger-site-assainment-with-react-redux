@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addLovesBlogs, removeLovesBlogs } from "../redux/actions/blogsActions";
+import {
+  addLovesBlogs,
+  addReadingHistory,
+  removeLovesBlogs,
+} from "../redux/actions/blogsActions";
 
 const BlogCard = ({ blog }) => {
-  // const [love, setLove] = useState(false);
   const myLove = useSelector((state) =>
     state.loveBlogs.filter((bl) => bl._id === blog._id)
   );
@@ -66,9 +69,15 @@ const BlogCard = ({ blog }) => {
                 ></i>
               </button>
             )}
-            <Link to="/blog-details/:id" className="  font-semibold my-1 mr-5 ">
-              Read More &#8594;
-            </Link>
+
+            <button onClick={() => dispatch(addReadingHistory(blog))}>
+              <Link
+                to={`/blog-details/${blog._id}`}
+                className="  font-semibold my-1 mr-5 "
+              >
+                Read More &#8594;
+              </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -77,3 +86,8 @@ const BlogCard = ({ blog }) => {
 };
 
 export default BlogCard;
+
+// const click = (blog) => {
+//   dispatch(addReadingHistory(blog));
+//   navigate(`/blog-details/:id`);
+// };

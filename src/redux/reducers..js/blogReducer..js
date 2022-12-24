@@ -3,6 +3,7 @@ import {
   ADD_LOVE,
   DELETE_CONTENT,
   GET_CONTENT,
+  READING_HISTORY,
   REMOVE_LOVE,
 } from "../actionTypes/actionTypes";
 
@@ -10,6 +11,7 @@ const initialState = {
   test: "test",
   blogs: [],
   loveBlogs: [],
+  readingHistory: [],
 };
 
 const blogReducer = (state = initialState, action) => {
@@ -36,6 +38,12 @@ const blogReducer = (state = initialState, action) => {
       return {
         ...state,
         loveBlogs: [...state.loveBlogs, action.payload],
+      };
+
+    case READING_HISTORY:
+      return {
+        ...state,
+        readingHistory: [...state.readingHistory, action.payload],
       };
 
     case REMOVE_LOVE:

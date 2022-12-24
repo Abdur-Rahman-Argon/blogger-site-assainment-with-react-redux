@@ -3,6 +3,7 @@ import {
   ADD_LOVE,
   DELETE_CONTENT,
   GET_CONTENT,
+  READING_HISTORY,
   REMOVE_LOVE,
 } from "../actionTypes/actionTypes";
 
@@ -20,6 +21,10 @@ export const removeBlogAction = (id) => {
 
 export const addLovesBlogs = (data) => {
   return { type: ADD_LOVE, payload: data };
+};
+
+export const addReadingHistory = (data) => {
+  return { type: READING_HISTORY, payload: data };
 };
 
 export const removeLovesBlogs = (id) => {
