@@ -34,7 +34,7 @@ const BlogCard = ({ blog }) => {
             </p>
             <p>
               <span>
-                <i class="fa-light fa-watch"></i>
+                <i className="fa-light fa-watch"></i>
               </span>
               <span className=" font-semibold text-sm">
                 {" "}
@@ -54,7 +54,7 @@ const BlogCard = ({ blog }) => {
                 className="  mt-1 text-2xl font-semibold bg-gray-300 rounded px-1 "
               >
                 <i
-                  class={`fa-solid fa-heart text-red-500
+                  className={`fa-solid fa-heart text-red-500
                  `}
                 ></i>
               </button>
@@ -64,7 +64,7 @@ const BlogCard = ({ blog }) => {
                 className="  mt-1 text-2xl font-semibold bg-gray-300 rounded px-1 "
               >
                 <i
-                  class={`fa-solid fa-heart  text-slate-500"
+                  className={`fa-solid fa-heart  text-slate-500"
                 } `}
                 ></i>
               </button>

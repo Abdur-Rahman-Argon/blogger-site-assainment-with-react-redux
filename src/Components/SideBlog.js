@@ -1,8 +1,13 @@
 import React from "react";
-import ResentBlog from "./ResentBlog";
 import PopularBlog from "./PopularBlog";
+import { useSelector } from "react-redux";
+import ResentViews from "./ResentViews";
 
 const SideBlog = () => {
+  const blogs = useSelector((state) => state.readingHistory);
+  const abc = [...blogs];
+  const history = abc.reverse();
+
   return (
     <div className=" flex flex-col gap-4 mx-4">
       <div>
@@ -13,12 +18,11 @@ const SideBlog = () => {
       </div>
 
       <div>
-        <h1 className=" uppercase font-medium text-lg"> Resent Post</h1>
+        <h1 className=" uppercase font-medium text-lg"> Resent Views</h1>
         <div className="flex flex-col gap-1">
-          <ResentBlog />
-          <ResentBlog />
-          <ResentBlog />
-          <ResentBlog />
+          {history?.map((blog) => (
+            <ResentViews key={blog._id} blog={blog} />
+          ))}
         </div>
       </div>
 

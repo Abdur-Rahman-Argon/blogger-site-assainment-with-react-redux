@@ -26,7 +26,11 @@ const BlogDetails = ({ blogDetails }) => {
       </div>
       <div className=" text-center">
         <div className=" text-center">
-          <img src={blogDetails.photoURL} alt="car!" className=" mx-auto" />
+          <img
+            src={blogDetails.photoURL}
+            alt="car!"
+            className=" w-10/12 mx-auto"
+          />
         </div>
         <div className=" text-center"> Image tittle</div>
         <div className="divider"></div>
@@ -71,7 +75,7 @@ const BlogDetails = ({ blogDetails }) => {
             <div>
               <div className="card-actions  text-base  flex justify-between my-1">
                 <p>
-                  <span className=" cursor-pointer font-semibold">
+                  <span className="mx-2 cursor-pointer font-semibold">
                     Abdur Rahman
                   </span>
                 </p>

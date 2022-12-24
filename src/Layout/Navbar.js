@@ -27,7 +27,7 @@ const Navbar = () => {
         <Link to="/portfolio">Portfolio</Link>
       </li> */}
       <li>
-        <Link to="/about">About</Link>
+        <Link to="/admin">Admin</Link>
       </li>
       <li>
         <Link to="/contact-us">Contact Us</Link>
@@ -126,7 +126,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-slate-700 text-slate-50 px-20 py-0">
+    <div className="navbar bg-slate-700 text-slate-50 px-2 lg:px-20 py-0">
       <div className="navbar-start">
         <Link
           to=""

@@ -9,6 +9,7 @@ import BlogDetailsPage from "../Pages/BlogDetailsPage";
 import CreateBlog from "../Components/CreateBlog";
 import LoveBlogs from "../Pages/LoveBlogs";
 import ReadingHistory from "../Pages/ReadingHistory";
+import Admin from "../Pages/Admin";
 
 const routes = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const routes = createBrowserRouter([
       { path: "/create-blogs", element: <CreateBlog /> },
       { path: "/love-blogs", element: <LoveBlogs /> },
       { path: "/reading-history", element: <ReadingHistory /> },
+      { path: "/admin", element: <Admin /> },
     ],
   },
 ]);

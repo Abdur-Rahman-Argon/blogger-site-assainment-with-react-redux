@@ -1,29 +1,34 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import ResentViews from "./ResentViews";
 
-const ResentBlog = () => {
+const ResentBlog = ({ blog }) => {
+  const blogs = useSelector((state) => state.blogs);
+  const abc = [...blogs];
+  const history = abc.reverse();
+  console.log(history);
   return (
     <div>
-      <div className="rounded-md flex gap-2 bg-gray-100 m-1">
-        <figure className="">
-          <img
-            src="https://placeimg.com/400/225/arch"
-            className=" w-40"
-            alt="car!"
-          />
-        </figure>
+      <div>
+        <h1 className=" uppercase font-medium text-lg"> Resent Blogs</h1>
+        <div className="flex flex-col gap-1">
+          {history?.splice(0, 5).map((blog) => (
+            <ResentViews key={blog._id} blog={blog} />
+          ))}
+        </div>
+      </div>
 
-        <div className=" w-full text-left  px-3 ">
-          <h2 className=" font-semi text- my-1">
-            This Collection Prieod Prieod
-          </h2>
-
-          <div className="my-2 text-xs flex justify-between ">
-            <p>
-              by <span className=" font-semibold"> Abdur Rahman </span>
-            </p>
-            <p className=" text- ">
-              <span className=" font-semibold"> 5 May, 2022 </span>
-            </p>
+      <div className="">
+        <h1 className=" uppercase font-medium text-lg">Categories</h1>
+        <div className=" flex flex-col gap-2">
+          <div className="rounded-md flex justify-between px-4 py-1 gap-2 bg-gray-100 w-full  glass m-1">
+            <span> All</span> <span> 50</span>
+          </div>
+          <div className="rounded-md flex justify-between px-4 py-1 gap-2 bg-gray-100 w-full  glass m-1">
+            <span> Pages</span> <span> 30</span>
+          </div>
+          <div className="rounded-md flex justify-between px-4 py-1 gap-2 bg-gray-100 w-full  glass m-1">
+            <span> Education</span> <span> 10</span>
           </div>
         </div>
       </div>

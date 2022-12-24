@@ -7,17 +7,17 @@ import { useSelector } from "react-redux";
 const BlogDetailsPage = () => {
   const { id } = useParams();
   const blogDetails = useSelector((state) =>
-    state.blogs.filter((blog) => blog._id === id)
+    state.blogs.find((blog) => blog._id === id)
   );
-  console.log(blogDetails);
+  // console.log(blogDetails);
 
   return (
     <div>
       <div className=" m-2 flex flex-col lg:flex-row">
         <div className=" lg:w-10/12 ">
-          <BlogDetails blogDetails={blogDetails[0]} />
+          <BlogDetails blogDetails={blogDetails} />
         </div>
-        <div className=" p-2 lg:w-80">
+        <div className=" p-2 lg:w-96">
           <SideBlog />
         </div>
       </div>

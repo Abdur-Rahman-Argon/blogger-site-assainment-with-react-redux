@@ -41,10 +41,23 @@ const blogReducer = (state = initialState, action) => {
       };
 
     case READING_HISTORY:
-      return {
-        ...state,
-        readingHistory: [...state.readingHistory, action.payload],
-      };
+      const exist = state.readingHistory.find(
+        (b) => b._id === action.payload._id
+      );
+      if (exist) {
+        const previousState = state.readingHistory.filter(
+          (b) => b._id !== action.payload._id
+        );
+        return {
+          ...state,
+          readingHistory: [...previousState, action.payload],
+        };
+      } else {
+        return {
+          ...state,
+          readingHistory: [...state.readingHistory, action.payload],
+        };
+      }
 
     case REMOVE_LOVE:
       return {
