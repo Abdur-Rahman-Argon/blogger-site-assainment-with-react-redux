@@ -8,6 +8,7 @@ import Signup from "../Pages/Signup";
 import BlogDetailsPage from "../Pages/BlogDetailsPage";
 import CreateBlog from "../Components/CreateBlog";
 import LoveBlogs from "../Pages/LoveBlogs";
+import ReadingHistory from "../Pages/ReadingHistory";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const routes = createBrowserRouter([
       },
       { path: "/create-blogs", element: <CreateBlog /> },
       { path: "/love-blogs", element: <LoveBlogs /> },
+      { path: "/reading-history", element: <ReadingHistory /> },
     ],
   },
 ]);

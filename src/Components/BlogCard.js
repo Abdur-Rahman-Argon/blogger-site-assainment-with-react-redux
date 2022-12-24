@@ -25,7 +25,7 @@ const BlogCard = ({ blog }) => {
 
         <div className=" bg-gray-200 p-2">
           <h2 className="text-center font-semibold text-lg my-1">
-            {blog.blogTittle.slice(0, 22)}
+            {blog?.blogTittle?.slice(0, 22)}
           </h2>
 
           <div className="card-actions my-1 flex justify-between">
@@ -44,7 +44,7 @@ const BlogCard = ({ blog }) => {
           </div>
 
           <p className=" font-normal text-sm">
-            {blog.blogText.slice(0, 150)} . . .
+            {blog?.blogText?.slice(0, 150)} . . .
           </p>
 
           <div className="card-actions items-center justify-between mt-2">
