@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideBlog from "./SideBlog";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import createBlogsData from "../redux/thank/createBlogsData";
 
 const CreateBlog = () => {
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  // dispatch(loadBlogsData());
+  // }, [dispatch]);
+
   const {
     control,
     register,
@@ -22,18 +30,20 @@ const CreateBlog = () => {
 
   const onSubmit = (data) => {
     // event.preventDefault()
-    console.log(data);
 
     const blog = {
+      name: data.name,
+      email: data.email,
       blogText: data.blogText,
+      photoURL: data.photoURL,
       blogTittle: data.blogTittle,
       category: data.category,
-      email: data.email,
-      name: data.name,
-      peraSize: data.peraSize,
-      date: "",
+      // peraSize: [data.peraSize],
+      publishDate: new Date(),
       loves: [""],
     };
+    dispatch(createBlogsData(blog));
+    console.log(blog);
   };
   return (
     <div>
@@ -107,6 +117,28 @@ const CreateBlog = () => {
                 </p>
               </div>
 
+              {/* image URL  */}
+              <div className="my-2 flex flex-col gap-1">
+                <label className=" mx-2 font-semibold" htmlFor=" ">
+                  Input Image URL
+                  <span className=" text-red-600 text-xl font-bold">*</span>
+                </label>
+                <input
+                  placeholder="Please Input Blogs Tittle"
+                  type="text"
+                  className={`${input} ${errors.photoURL && " border-red-500"}`}
+                  {...register("photoURL", { required: true })}
+                />
+                {/*  */}
+                <p>
+                  {errors.photoURL && (
+                    <span className=" ml-5 text-red-500">
+                      Blog Tittle is required
+                    </span>
+                  )}
+                </p>
+              </div>
+
               {/*  */}
               <div className="my-2 flex flex-col gap-1">
                 <label className=" font-semibold mx-2" htmlFor=" ">
@@ -162,38 +194,7 @@ const CreateBlog = () => {
                 )}
               </p>
 
-              <div className="divider"></div>
-
-              {/*  */}
-              <div className="my-1 font-semibold px-6 flex flex-row justify-between items-center">
-                <div>
-                  <input
-                    type="radio"
-                    id="one-pera"
-                    name="one-pera"
-                    value={"one-pera"}
-                    {...register("peraSize")}
-                    className=" cursor-pointer"
-                    selected
-                  />
-                  <label className=" mx-2" htmlFor="one-pera">
-                    Single Pera
-                  </label>
-                </div>
-                <div>
-                  <input
-                    type="radio"
-                    id="multi-pera"
-                    name="multi-pera"
-                    value={"multi-pera"}
-                    {...register("peraSize")}
-                    className=" cursor-pointer"
-                  />
-                  <label className=" mx-2" htmlFor="multi-pera">
-                    Multiple Pera
-                  </label>
-                </div>
-              </div>
+              {/* <div className="divider"></div> */}
 
               {/*  */}
               <div className="my-2 flex flex-col gap-1">
@@ -263,4 +264,35 @@ export default CreateBlog;
 //      />
 //    )}
 //  />
+// </div>
+
+//  {/*  */}
+//  <div className="my-1 font-semibold px-6 flex flex-row justify-between items-center">
+//  <div>
+//    <input
+//      type="radio"
+//      id="one-pera"
+//      name="one-pera"
+//      value={"one-pera"}
+//      {...register("peraSize")}
+//      className=" cursor-pointer"
+//      selected
+//    />
+//    <label className=" mx-2" htmlFor="one-pera">
+//      Single Pera
+//    </label>
+//  </div>
+//  <div>
+//    <input
+//      type="radio"
+//      id="multi-pera"
+//      name="multi-pera"
+//      value={"multi-pera"}
+//      {...register("peraSize")}
+//      className=" cursor-pointer"
+//    />
+//    <label className=" mx-2" htmlFor="multi-pera">
+//      Multiple Pera
+//    </label>
+//  </div>
 // </div>

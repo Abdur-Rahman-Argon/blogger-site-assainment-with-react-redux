@@ -20,6 +20,9 @@ const Navbar = () => {
       <li>
         <Link to="/create-blogs">Create Blogs</Link>
       </li>
+      <li>
+        <Link to="/reading-history">Reading History</Link>
+      </li>
       {/* <li>
         <Link to="/portfolio">Portfolio</Link>
       </li> */}
@@ -94,12 +97,17 @@ const Navbar = () => {
 
               <li>
                 <Link to="" className="justify-between">
-                  Profile
+                  My Profile Info
                 </Link>
               </li>
               <li>
                 <Link to="" className="justify-between">
                   My Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="" className="justify-between">
+                  My Love Blogs
                 </Link>
               </li>
               <li>

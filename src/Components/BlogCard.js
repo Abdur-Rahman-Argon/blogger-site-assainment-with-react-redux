@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const BlogCard = () => {
   const [love, setLove] = useState(false);
   return (
-    <div className="rounded-xl   w-72 m-1">
-      <div className="rounded-xl  w-72 m-1">
+    <div className="  w-72 m-1">
+      <div className="rounded-lg  w-72 m-1">
         <figure className="">
           <img src="https://placeimg.com/400/225/arch" alt="car!" />
         </figure>

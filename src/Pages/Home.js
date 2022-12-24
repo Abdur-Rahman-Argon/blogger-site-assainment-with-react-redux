@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BlogCard from "../Components/BlogCard";
 import CategoryMenu from "../Components/CategoryMenu";
+import { useDispatch, useSelector } from "react-redux";
+import loadBlogsData from "../redux/thank/loadBlogsData";
 
 const Home = () => {
   const [select, setSelect] = useState(false);
   const selectt = "bg-slate-700 text-white";
   const unSelect = " text-slate-700  border-slate-400";
+  const blogs = useSelector((state) => state.blogs);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadBlogsData());
+  }, [dispatch]);
 
   return (
     <div className=" px-4">
@@ -42,10 +50,9 @@ const Home = () => {
         </div> */}
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        {blogs.map((blog) => (
+          <BlogCard />
+        ))}
       </div>
     </div>
   );
