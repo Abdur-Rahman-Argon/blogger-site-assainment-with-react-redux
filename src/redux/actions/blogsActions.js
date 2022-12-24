@@ -5,6 +5,7 @@ import {
   GET_CONTENT,
   READING_HISTORY,
   REMOVE_LOVE,
+  UPDATE_CONTENT,
 } from "../actionTypes/actionTypes";
 
 export const loadBlogs = (data) => {
@@ -21,6 +22,10 @@ export const removeBlogAction = (id) => {
 
 export const addLovesBlogs = (data) => {
   return { type: ADD_LOVE, payload: data };
+};
+
+export const updateBlogs = (id) => {
+  return { type: UPDATE_CONTENT, payload: id };
 };
 
 export const addReadingHistory = (data) => {

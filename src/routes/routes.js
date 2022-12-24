@@ -10,6 +10,7 @@ import CreateBlog from "../Components/CreateBlog";
 import LoveBlogs from "../Pages/LoveBlogs";
 import ReadingHistory from "../Pages/ReadingHistory";
 import Admin from "../Pages/Admin";
+import UpdateBlogs from "../Components/UpdateBlogs";
 
 const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
       {
         path: "/blog-details/:id",
         element: <BlogDetailsPage></BlogDetailsPage>,
+      },
+      {
+        path: "/update-blog/:id",
+        element: <UpdateBlogs />,
       },
       { path: "/create-blogs", element: <CreateBlog /> },
       { path: "/love-blogs", element: <LoveBlogs /> },

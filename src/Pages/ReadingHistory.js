@@ -14,9 +14,14 @@ const ReadingHistory = () => {
     <div>
       <div className=" m-2 flex flex-col lg:flex-row">
         <div className=" lg:w-10/12 ">
-          {history?.map((blog) => (
-            <ReadingHistoryBlogs key={blog._id} blog={blog} />
-          ))}
+          <h1 className=" my-3  text-center text-slate-700 font-bold text-3xl">
+            All Reading History
+          </h1>
+          <div className=" lg:px-10 ">
+            {history?.map((blog) => (
+              <ReadingHistoryBlogs key={blog._id} blog={blog} />
+            ))}
+          </div>
         </div>
         <div className=" p-2 lg:w-96">
           <div className=" flex flex-col gap-4 mx-4">

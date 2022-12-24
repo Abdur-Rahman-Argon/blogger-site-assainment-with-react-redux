@@ -18,18 +18,18 @@ const ReadingHistoryBlogs = ({ blog }) => {
             <div className=" w-full  text-left  px-3 ">
               <div className=" w-full flex justify-between items-center  px-3 ">
                 <div className=" text-left w-full">
-                  <h2 className=" font-semi text-left   my-1">
+                  <h2 className=" font-semibold  text-left text-xs md:text-lg   my-1">
                     {blog.blogTittle?.slice(0, 30)}...
                   </h2>
                 </div>
-                <div className="my-1 w-8/12 text-xs flex justify-between ">
+                <div className="my-1 w-8/12 text-[10px] md:text-xs flex justify-between ">
                   <p>
                     Posted by{" "}
                     <span className=" font-semibold"> {blog.name} </span>
                   </p>
                 </div>{" "}
               </div>
-              <p className=" text-xs ">
+              <p className=" text-[10px] md:text-xs font-thin ">
                 <span className="">{blog?.blogText?.slice(0, 180)} . . .</span>
               </p>
             </div>

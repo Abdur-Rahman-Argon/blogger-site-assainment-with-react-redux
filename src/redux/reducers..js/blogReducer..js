@@ -5,6 +5,7 @@ import {
   GET_CONTENT,
   READING_HISTORY,
   REMOVE_LOVE,
+  UPDATE_CONTENT,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -38,6 +39,11 @@ const blogReducer = (state = initialState, action) => {
       return {
         ...state,
         loveBlogs: [...state.loveBlogs, action.payload],
+      };
+
+    case UPDATE_CONTENT:
+      return {
+        ...state,
       };
 
     case READING_HISTORY:

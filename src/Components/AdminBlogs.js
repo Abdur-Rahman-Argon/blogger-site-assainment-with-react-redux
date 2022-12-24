@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AdminBlogs = ({ blog }) => {
   return (
@@ -23,9 +24,12 @@ const AdminBlogs = ({ blog }) => {
         </div>
 
         <div className=" w-full text-center px-3 ">
-          <button className=" text-3xl text-green-700 hover:text-green-600">
+          <Link
+            to={`/update-blog/${blog._id}`}
+            className=" text-3xl text-green-700 hover:text-green-600"
+          >
             <i class="fa-sharp fa-solid fa-pen-to-square"></i>
-          </button>
+          </Link>
         </div>
         <div className=" w-full text-center  px-3 ">
           <button className=" text-3xl text-red-700 hover:text-red-600">

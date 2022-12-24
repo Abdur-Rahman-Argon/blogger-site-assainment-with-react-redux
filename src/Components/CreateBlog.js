@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import createBlogsData from "../redux/thank/createBlogsData";
+import ResentBlog from "./ResentBlog";
 
 const CreateBlog = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const CreateBlog = () => {
       blogTittle: data.blogTittle,
       category: data.category,
       // peraSize: [data.peraSize],
-      publishDate: new Date(),
+      updateDate: new Date(),
       loves: [""],
     };
     dispatch(createBlogsData(blog));
@@ -50,6 +51,10 @@ const CreateBlog = () => {
       <div className=" m-2 flex flex-col gap-1 lg:flex-row">
         <div className=" lg:w-6/12 mx-auto ">
           <div className="border w-full p-10 rounded">
+            <h1 className=" text-center text-slate-700 font-bold text-3xl">
+              {" "}
+              Create A New Blogs Here
+            </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               {/*  */}
               <div className="my-2 flex flex-col gap-1">
@@ -234,7 +239,7 @@ const CreateBlog = () => {
         </div>
 
         <div className=" p-2 lg:w-80">
-          <SideBlog />
+          <ResentBlog />
         </div>
       </div>
     </div>
