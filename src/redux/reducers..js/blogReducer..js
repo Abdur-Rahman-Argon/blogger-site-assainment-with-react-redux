@@ -1,7 +1,9 @@
 import {
   ADD_CONTENT,
+  ADD_LOVE,
   DELETE_CONTENT,
   GET_CONTENT,
+  REMOVE_LOVE,
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -28,6 +30,20 @@ const blogReducer = (state = initialState, action) => {
       return {
         ...state,
         blogs: state.blogs.filter((blog) => blog._id !== action.payload),
+      };
+
+    case ADD_LOVE:
+      return {
+        ...state,
+        loveBlogs: [...state.loveBlogs, action.payload],
+      };
+
+    case REMOVE_LOVE:
+      return {
+        ...state,
+        loveBlogs: state.loveBlogs.filter(
+          (blog) => blog._id !== action.payload
+        ),
       };
 
     default:

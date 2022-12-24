@@ -106,7 +106,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="" className="justify-between">
+                <Link to="love-blogs" className="justify-between">
                   My Love Blogs
                 </Link>
               </li>

@@ -1,53 +1,72 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addLovesBlogs, removeLovesBlogs } from "../redux/actions/blogsActions";
 
-const BlogCard = () => {
-  const [love, setLove] = useState(false);
+const BlogCard = ({ blog }) => {
+  // const [love, setLove] = useState(false);
+  const myLove = useSelector((state) =>
+    state.loveBlogs.filter((bl) => bl._id === blog._id)
+  );
+
+  const love = myLove.length;
+
+  const dispatch = useDispatch();
+
   return (
     <div className="  w-72 m-1">
       <div className="rounded-lg  w-72 m-1">
         <figure className="">
-          <img src="https://placeimg.com/400/225/arch" alt="car!" />
+          <img src={blog.photoURL} alt="car!" />
         </figure>
 
-        <div className=" bg-gray-200 p-4">
+        <div className=" bg-gray-200 p-2">
           <h2 className="text-center font-semibold text-lg my-1">
-            This Collection Prieod
+            {blog.blogTittle.slice(0, 22)}
           </h2>
 
           <div className="card-actions my-1 flex justify-between">
             <p>
-              {" "}
-              by <span className=" font-semibold"> Abdur Rahman </span>
+              By <span className=" font-semibold"> {blog.name}</span>
             </p>
             <p>
-              {" "}
               <span>
                 <i class="fa-light fa-watch"></i>
-              </span>{" "}
-              <span className=" font-semibold text-sm"> 5 May, 2022 </span>
+              </span>
+              <span className=" font-semibold text-sm">
+                {" "}
+                {blog.publishDate}{" "}
+              </span>
             </p>
           </div>
 
           <p className=" font-normal text-sm">
-            In this collection of blog templates, we tried to collect a broad
-            range of different. Let’s kick tings of with the more unusual tool,
-            Suppa blog. If you are looking for that’s not too classic and
-            traditional.
+            {blog.blogText.slice(0, 150)} . . .
           </p>
 
           <div className="card-actions items-center justify-between mt-2">
-            <button
-              onClick={() => setLove(!love)}
-              className="  mt-1 text-2xl font-semibold bg-gray-300 rounded px-1 "
-            >
-              <i
-                class={`fa-solid fa-heart ${
-                  love ? "text-red-500" : " text-slate-500"
+            {love ? (
+              <button
+                onClick={() => dispatch(removeLovesBlogs(blog._id))}
+                className="  mt-1 text-2xl font-semibold bg-gray-300 rounded px-1 "
+              >
+                <i
+                  class={`fa-solid fa-heart text-red-500
+                 `}
+                ></i>
+              </button>
+            ) : (
+              <button
+                onClick={() => dispatch(addLovesBlogs(blog))}
+                className="  mt-1 text-2xl font-semibold bg-gray-300 rounded px-1 "
+              >
+                <i
+                  class={`fa-solid fa-heart  text-slate-500"
                 } `}
-              ></i>
-            </button>{" "}
-            <Link to="/blog-details" className="  font-semibold my-1 mr-5 ">
+                ></i>
+              </button>
+            )}
+            <Link to="/blog-details/:id" className="  font-semibold my-1 mr-5 ">
               Read More &#8594;
             </Link>
           </div>

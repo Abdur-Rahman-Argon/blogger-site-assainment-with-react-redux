@@ -1,7 +1,9 @@
 import {
   ADD_CONTENT,
+  ADD_LOVE,
   DELETE_CONTENT,
   GET_CONTENT,
+  REMOVE_LOVE,
 } from "../actionTypes/actionTypes";
 
 export const loadBlogs = (data) => {
@@ -14,4 +16,12 @@ export const createBlogs = (data) => {
 
 export const removeBlogAction = (id) => {
   return { type: DELETE_CONTENT, payload: id };
+};
+
+export const addLovesBlogs = (data) => {
+  return { type: ADD_LOVE, payload: data };
+};
+
+export const removeLovesBlogs = (id) => {
+  return { type: REMOVE_LOVE, payload: id };
 };
