@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import removeBlog from "../redux/thank/removeBlog";
+import { useDispatch } from "react-redux";
 
 const AdminBlogs = ({ blog }) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className=" my-5 rounded-md w-11/12 lg:w-10/12 mx-auto flex justify-start items-center gap-2 bg-gray-100 m-1">
@@ -32,7 +35,10 @@ const AdminBlogs = ({ blog }) => {
           </Link>
         </div>
         <div className=" w-full text-center  px-3 ">
-          <button className=" text-3xl text-red-700 hover:text-red-600">
+          <button
+            onClick={() => dispatch(removeBlog(blog._id))}
+            className=" text-3xl text-red-700 hover:text-red-600"
+          >
             <i class="fa-solid fa-delete-left"></i>
           </button>
         </div>

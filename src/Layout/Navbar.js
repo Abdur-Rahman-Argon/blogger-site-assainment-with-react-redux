@@ -133,7 +133,7 @@ const Navbar = () => {
           className="btn text-orange-400 uppercase btn-ghost   text-lg"
         >
           <img
-            src="https://icons.iconarchive.com/icons/sicons/basic-round-social/512/blogger-icon.png"
+            src="https://i.ibb.co/Xyrx98B/blogger-icon.png"
             alt=""
             className=" w-8 mx-1"
           />{" "}

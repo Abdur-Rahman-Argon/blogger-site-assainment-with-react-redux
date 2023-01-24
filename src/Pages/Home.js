@@ -3,17 +3,41 @@ import BlogCard from "../Components/BlogCard";
 import CategoryMenu from "../Components/CategoryMenu";
 import { useDispatch, useSelector } from "react-redux";
 import loadBlogsData from "../redux/thank/loadBlogsData";
+import { latestBlogs, oldestBlogs } from "../redux/actions/blogsActions";
 
 const Home = () => {
-  const [select, setSelect] = useState(false);
-  const selectt = "bg-slate-700 text-white";
+  const [blog, setBlog] = useState(false);
+  // const [popularBlog, setPopularBlog] = useState(false);
+  // const [resentBlog, setResentBlog] = useState(false);
+  const active = "bg-slate-700 text-white";
   const unSelect = " text-slate-700  border-slate-400";
-  const blogs = useSelector((state) => state.blogs);
+  const state = useSelector((state) => state);
+  const blogs = state.blogs;
+  const latest = state.latest;
+  const oldest = state.oldest;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadBlogsData());
   }, [dispatch]);
+
+  const toggleLatestBlogs = () => {
+    const late = blogs.reverse();
+    if (oldest) {
+      dispatch(latestBlogs(late));
+    } else {
+      dispatch(latestBlogs(blogs));
+    }
+  };
+
+  const toggleOldestBlogs = () => {
+    const old = blogs.reverse();
+    if (latest) {
+      dispatch(oldestBlogs(old));
+    } else {
+      dispatch(oldestBlogs(blogs));
+    }
+  };
 
   return (
     <div className=" px-4">
@@ -24,9 +48,9 @@ const Home = () => {
 
         <div>
           <button
-            onClick={() => setSelect(!select)}
+            onClick={toggleLatestBlogs}
             className={` ${
-              select ? selectt : unSelect
+              latest ? active : unSelect
             }  py-1 px-2 border-2 font-bold rounded-full uppercase`}
           >
             Latest Blog
@@ -35,9 +59,9 @@ const Home = () => {
 
         <div>
           <button
-            onClick={() => setSelect(!select)}
+            onClick={toggleOldestBlogs}
             className={` ${
-              select ? selectt : unSelect
+              oldest ? active : unSelect
             }  py-1 px-2 border-2 font-bold rounded-full uppercase`}
           >
             Oldest Blog
@@ -61,7 +85,7 @@ const Home = () => {
           </button>
         </div> */}
       </div>
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className=" grid grid-cols-1 md:grid-cols-2 justify-center md:justify-around lg:grid-cols-4">
         {blogs?.map((blog) => (
           <BlogCard key={blog._id} blog={blog} />
         ))}

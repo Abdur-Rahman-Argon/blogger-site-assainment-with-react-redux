@@ -1,7 +1,5 @@
-export const FETCHING_START = "FETCHING_START";
-export const FETCHING_SUCCESS = "FETCHING_SUCCESS";
-export const FETCHING_ERROR = "FETCHING_ERROR";
-export const TOGGLE_STOCK = "TOGGLE_STOCK";
+export const TOGGLE_LATEST = "TOGGLE_LATEST";
+export const TOGGLE_OLDEST = "TOGGLE_OLDEST";
 export const ADD_LOVE = "ADD_LOVE";
 export const READING_HISTORY = "READING_HISTORY";
 export const REMOVE_LOVE = "REMOVE_LOVE";

@@ -5,6 +5,8 @@ import {
   GET_CONTENT,
   READING_HISTORY,
   REMOVE_LOVE,
+  TOGGLE_LATEST,
+  TOGGLE_OLDEST,
   UPDATE_CONTENT,
 } from "../actionTypes/actionTypes";
 
@@ -34,4 +36,11 @@ export const addReadingHistory = (data) => {
 
 export const removeLovesBlogs = (id) => {
   return { type: REMOVE_LOVE, payload: id };
+};
+
+export const latestBlogs = (late) => {
+  return { type: TOGGLE_LATEST, payload: late };
+};
+export const oldestBlogs = (old) => {
+  return { type: TOGGLE_OLDEST, payload: old };
 };

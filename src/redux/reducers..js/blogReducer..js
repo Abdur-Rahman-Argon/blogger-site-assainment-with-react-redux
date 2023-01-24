@@ -5,6 +5,8 @@ import {
   GET_CONTENT,
   READING_HISTORY,
   REMOVE_LOVE,
+  TOGGLE_LATEST,
+  TOGGLE_OLDEST,
   UPDATE_CONTENT,
 } from "../actionTypes/actionTypes";
 
@@ -13,10 +15,28 @@ const initialState = {
   blogs: [],
   loveBlogs: [],
   readingHistory: [],
+  latest: false,
+  oldest: true,
 };
 
 const blogReducer = (state = initialState, action) => {
   switch (action.type) {
+    case TOGGLE_LATEST:
+      return {
+        ...state,
+        latest: true,
+        blogs: action.payload,
+        oldest: false,
+      };
+
+    case TOGGLE_OLDEST:
+      return {
+        ...state,
+        latest: false,
+        blogs: action.payload,
+        oldest: true,
+      };
+
     case GET_CONTENT:
       return {
         ...state,

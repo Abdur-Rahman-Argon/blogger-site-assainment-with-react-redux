@@ -20,7 +20,7 @@ const BlogCard = ({ blog }) => {
     <div className="  w-72 m-1">
       <div className="rounded-lg  w-72 m-1">
         <figure className="">
-          <img src={blog.photoURL} alt="car!" />
+          <img src={blog.photoURL} alt="car!" className=" w-full h-48" />
         </figure>
 
         <div className=" bg-gray-200 p-2">
@@ -38,13 +38,13 @@ const BlogCard = ({ blog }) => {
               </span>
               <span className=" font-semibold text-sm">
                 {" "}
-                {blog.publishDate}{" "}
+                {blog.publishDate?.slice(0, 10)}{" "}
               </span>
             </p>
           </div>
 
           <p className=" font-normal text-sm">
-            {blog?.blogText?.slice(0, 150)} . . .
+            {blog?.blogText?.slice(0, 140)} . . .
           </p>
 
           <div className="card-actions items-center justify-between mt-2">
